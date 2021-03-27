@@ -9,9 +9,11 @@ logging.basicConfig(format='%(asctime)s - %(levelname)s - %(message)s',level=log
 def start_bot(update: Update, context: CallbackContext):
 	# print(update)
 	first_name = format(update.message.chat.first_name)
+	user_name = format(update.message.chat.username)
 	hello_text = """Привет %s!
 Я простой бот Жека и я повторяю за тобой всё!
 	""" % (first_name)
+	logging.info('Пользователь %s нажал /start' % (user_name))
 
 	update.message.reply_text(hello_text)
 
